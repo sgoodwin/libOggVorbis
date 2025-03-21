@@ -9,13 +9,23 @@ let package = Package(
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "libOggVorbis",
-            targets: ["libOggVorbis"]),
+            type: .static,
+            targets: ["libOggVorbis"]
+        ),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "libOggVorbis"),
-
+            name: "libOggVorbis",
+            sources: [
+                "./lib",
+                "./",
+            ],
+            cSettings: [
+                .headerSearchPath("./ogg"),
+                .headerSearchPath("./vorbis"),
+                .headerSearchPath("./lib"),
+            ])
     ]
 )

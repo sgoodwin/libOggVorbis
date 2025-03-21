@@ -1,0 +1,4 @@
+module libOggVorbis {
+    umbrella-header "oggvorbis.h"
+    export *
+}
